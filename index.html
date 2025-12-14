@@ -544,6 +544,54 @@
     }
     .check svg{ width: 12px; height: 12px; }
 
+    /* Info layouts */
+    .pillRow{ display:flex; flex-wrap:wrap; gap: 8px; margin: 12px 0; }
+    .tinyPill{
+      display:inline-flex; align-items:center; gap: 8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(11,31,42,.06);
+      border: 1px solid rgba(11,31,42,.08);
+      font-weight: 700;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+    .splitGrid{ display:grid; grid-template-columns: 1.05fr .95fr; gap: 16px; align-items:flex-start; margin-top: 18px; }
+    .panel{
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow2);
+    }
+    .panel h3{ margin: 0 0 8px; font-family: Unbounded, Manrope; font-size: 17px; }
+    .panel p{ margin: 0 0 10px; color: var(--muted); line-height: 1.6; }
+    .dashList{ margin: 0; padding-left: 16px; color: var(--muted); line-height: 1.6; }
+    .dashList li{ margin: 6px 0; padding-left: 4px; }
+    .flag{ display:inline-block; padding: 6px 10px; border-radius: 12px; background: rgba(255,106,61,.12); color: var(--accent); font-weight: 800; font-size: 12.5px; letter-spacing: .2px; }
+
+    .twoCol{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px; }
+    .focusCard{
+      padding: 16px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.70));
+      border: 1px solid rgba(11,31,42,.08);
+      box-shadow: var(--shadow2);
+    }
+    .focusCard h3{ margin: 0 0 8px; font-family: Unbounded, Manrope; font-size: 16.5px; }
+    .focusCard ul{ margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.6; }
+    .focusCard li{ margin: 6px 0; }
+
+    .tableWrap{ overflow-x: auto; margin-top: 12px; }
+    .packageTable{ width: 100%; border-collapse: collapse; min-width: 620px; background: rgba(255,255,255,.82); box-shadow: var(--shadow2); border-radius: var(--radius-lg); overflow: hidden; }
+    .packageTable th, .packageTable td{ padding: 12px 14px; border-bottom: 1px solid rgba(11,31,42,.08); text-align:left; }
+    .packageTable th{ background: rgba(11,31,42,.85); color: rgba(255,255,255,.94); font-family: Unbounded, Manrope; font-weight: 600; font-size: 14px; }
+    .packageTable tr:last-child td{ border-bottom: none; }
+    .packageTable tbody tr:nth-child(odd){ background: rgba(11,31,42,.02); }
+    .badgeSoft{ display:inline-flex; padding: 6px 10px; border-radius: 10px; background: rgba(27,122,163,.12); color: var(--accent2); font-weight: 800; font-size: 12.5px; }
+
+    .note{ margin: 12px 0 0; color: var(--muted2); font-size: 13px; line-height: 1.6; }
+
     /* Contact */
     .contactGrid{
       display:grid;
@@ -643,6 +691,8 @@
       .pricing{ grid-template-columns: 1fr; }
       .grid3{ grid-template-columns: 1fr; }
       .contactGrid{ grid-template-columns: 1fr; }
+      .splitGrid{ grid-template-columns: 1fr; }
+      .twoCol{ grid-template-columns: 1fr; }
     }
     @media (max-width: 560px){
       section{ padding: 66px 0; }
@@ -678,8 +728,10 @@
 
       <nav class="navlinks" aria-label="Навигация">
         <a class="pill" href="#benefits">Зачем</a>
+        <a class="pill" href="#idea">Предложение</a>
         <a class="pill" href="#process">Процесс</a>
         <a class="pill" href="#pricing">Бюджеты</a>
+        <a class="pill" href="#terms">Условия</a>
         <a class="pill" href="#contact">Контакты</a>
       </nav>
     </div>
@@ -818,13 +870,115 @@
       </div>
     </section>
 
+    <!-- IDEA & IMPORTANCE -->
+    <section id="idea">
+      <div class="wrap">
+        <p class="kicker reveal">Суть предложения</p>
+        <h2 class="reveal">Индивидуальные керамические накладки под язык вашего интерьера</h2>
+        <div class="splitGrid">
+          <div class="panel reveal">
+            <span class="flag">Идея в одном абзаце</span>
+            <p>
+              Делаю керамические накладки на розетки и выключатели, которые точно садятся на ваш механизм
+              и продолжают стиль интерьера: цвет, фактура, мотив, линии. Это не серия — каждая рамка подгоняется
+              под конкретный объект и собирает картинку как «ювелирка интерьера».
+            </p>
+            <div class="pillRow">
+              <span class="tinyPill">Кастом под бренд механизма</span>
+              <span class="tinyPill">Интерьерные палитры и фактуры</span>
+              <span class="tinyPill">Премиум-отделка, ручная работа</span>
+            </div>
+          </div>
+
+          <div class="panel reveal">
+            <h3>Почему это важно в премиум-проектах</h3>
+            <ul class="dashList">
+              <li>Фурнитура видна в каждом помещении: «не тот» пластик выбивается из камня, дерева и штукатурок.</li>
+              <li>В дорогих интерьерах ценят кастом и ручную работу — уникальные детали нельзя «купить в магазине».</li>
+              <li>Керамика — осознанный элемент стиля (ретро, минимализм, арт-деко, винтаж, cottagecore и др.).</li>
+              <li>Поддерживаем авторские панно, текстиль, мебель — рамка становится маленьким акцентом стены.</li>
+            </ul>
+            <p class="note">Моя задача — закрыть слабое место интерьера и сделать фурнитуру частью композиции.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFER DETAILS -->
+    <section id="offer">
+      <div class="wrap">
+        <p class="kicker reveal">Что именно вы получаете</p>
+        <h2 class="reveal">Формат продукта, дизайн и технология</h2>
+
+        <div class="twoCol">
+          <div class="focusCard reveal">
+            <h3>Формат продукта</h3>
+            <ul>
+              <li>Керамические накладки/рамки для розеток, выключателей и групповых блоков.</li>
+              <li>Точная посадка под выбранную серию механизмов (евростандарт, 60 мм подрозетник и др.).</li>
+              <li>Работаю по реальным рамкам/механизмам заказчика — гарантия совпадения габаритов.</li>
+            </ul>
+          </div>
+
+          <div class="focusCard reveal">
+            <h3>Дизайн под интерьер</h3>
+            <ul>
+              <li>Минимализм, арт-деко, классика, этника, авторские мотивы.</li>
+              <li>Рельеф, орнамент, фактурные поверхности, сложные цвета, ручная роспись.</li>
+              <li>Можно поддержать арт-объекты, панели, текстиль и цветовые сочетания помещения.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel reveal" style="margin-top: 16px;">
+          <h3>Технология</h3>
+          <p>3D-моделирование посадки с учётом усадки глины, тесты на образцах, мастер-модель, гипсовый молд и шликерное литьё.</p>
+          <p>Два обжига (утильный и глазурный), ручная дорезка сырца, роспись и контроль геометрии на реальном механизме.</p>
+          <div class="pillRow">
+            <span class="tinyPill">Точные 3D-замеры</span>
+            <span class="tinyPill">Мастер-модель → форма → серия</span>
+            <span class="tinyPill">Контроль брака ~25% заложен</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUDIENCE -->
+    <section id="audience">
+      <div class="wrap">
+        <p class="kicker reveal">Для кого</p>
+        <h2 class="reveal">Работаю с дизайнерами, бюро и частными заказчиками</h2>
+        <div class="twoCol">
+          <div class="focusCard reveal">
+            <h3>Дизайнеры и архитекторы</h3>
+            <ul>
+              <li>Объекты бизнес+ и премиум, где важна детализация и уникальность.</li>
+              <li>Много открытых точек в зоне обзора: кухни, гостиные, проходные зоны.</li>
+              <li>Материалы высокого класса (камень, массив, декоративные штукатурки) — пластик рядом выглядит дешево.</li>
+              <li>Нужно визуально «сшить» интерьер и дать заказчику редкую деталь, которую сложно повторить.</li>
+            </ul>
+          </div>
+
+          <div class="focusCard reveal">
+            <h3>Частные заказчики</h3>
+            <ul>
+              <li>Авторские дома и квартиры «как в журнале», где важен каждый штрих.</li>
+              <li>Хочется ручной работы, индивидуальности и материалов «без пластика».</li>
+              <li>Можно сделать комплект под семейную историю, арт-панно или коллекцию.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- PROCESS -->
     <section id="process">
       <div class="wrap">
         <p class="kicker reveal">Слайд 3 · производство</p>
-        <h2 class="reveal">Процесс в 5 шагов</h2>
+        <h2 class="reveal">Процесс в 7 шагов</h2>
         <p class="sub reveal">
           Чётко, прозрачно и с примеркой: чтобы посадка была идеальной, а результат — предсказуемым на объекте.
+          В каждом шаге заложены сроки и контроль качества.
         </p>
 
         <div class="steps">
@@ -832,11 +986,11 @@
             <div class="stepTop">
               <div class="num">1</div>
               <div class="stepContent">
-                <h3>Обсуждаем проект</h3>
+                <h3>ТЗ и выбор систем · 1–2 дня</h3>
                 <div class="stepMedia">
-                  <img src="assets/defolt_rosetka.png" alt="Обсуждаем проект" loading="lazy" />
+                  <img src="assets/defolt_rosetka.png" alt="ТЗ и выбор систем" loading="lazy" />
                 </div>
-                <p>Интерьер, палитра, количество точек, сроки. Уточняю стиль, материалы стен и зоны.</p>
+                <p>Обсуждаем объект, стилистику, палитру. Фиксируем бренды механизмов, количество точек и уникальных дизайнов.</p>
               </div>
             </div>
           </div>
@@ -845,11 +999,11 @@
             <div class="stepTop">
               <div class="num">2</div>
               <div class="stepContent">
-                <h3>Снимаем размеры</h3>
+                <h3>Точная посадка и 3D · 1–2 недели</h3>
                 <div class="stepMedia">
-                  <img src="assets/defolt_rosetka.png" alt="Снимаем размеры" loading="lazy" />
+                  <img src="assets/defolt_rosetka.png" alt="Точная посадка и 3D" loading="lazy" />
                 </div>
-                <p>Вы присылаете пластиковую накладку — я делаю 3D‑модель посадки с учётом усадки керамики.</p>
+                <p>Получаю ваши пластиковые рамки, строю инженерную 3D-базу с учётом усадки глины, продумываю художественную форму.</p>
               </div>
             </div>
           </div>
@@ -858,11 +1012,11 @@
             <div class="stepTop">
               <div class="num">3</div>
               <div class="stepContent">
-                <h3>Прототип и примерка</h3>
+                <h3>Прототип и примерка · 1–2 недели</h3>
                 <div class="stepMedia">
                   <img src="assets/defolt_rosetka.png" alt="Прототип и примерка" loading="lazy" />
                 </div>
-                <p>Печатаю пластиковый прототип. Вы примеряете на объекте и утверждаете посадку.</p>
+                <p>Печатаю пластиковый прототип, отправляю на объект. Проверка посадки по чек-листу, 1–2 итерации правок.</p>
               </div>
             </div>
           </div>
@@ -871,11 +1025,11 @@
             <div class="stepTop">
               <div class="num">4</div>
               <div class="stepContent">
-                <h3>Молд и керамика</h3>
+                <h3>Мастер-модель и молд · 1–2 недели</h3>
                 <div class="stepMedia">
-                  <img src="assets/defolt_rosetka.png" alt="Молд и керамика" loading="lazy" />
+                  <img src="assets/defolt_rosetka.png" alt="Мастер-модель и молд" loading="lazy" />
                 </div>
-                <p>Делаю форму, отливаю, сушу, обжигаю два раза, декорирую и глазурую.</p>
+                <p>Печатаю мастер-модель, снимаю гипсовую форму (одиночную или составную), сушу и готовлю к серии.</p>
               </div>
             </div>
           </div>
@@ -884,11 +1038,37 @@
             <div class="stepTop">
               <div class="num">5</div>
               <div class="stepContent">
-                <h3>Контроль и отправка</h3>
+                <h3>Литьё, сушка, утиль · 1–2 недели</h3>
                 <div class="stepMedia">
-                  <img src="assets/defolt_rosetka.png" alt="Контроль и отправка" loading="lazy" />
+                  <img src="assets/defolt_rosetka.png" alt="Литьё, сушка, утильный обжиг" loading="lazy" />
                 </div>
-                <p>Проверяю посадку на механизме, упаковываю каждое изделие и отправляю.</p>
+                <p>Лью серию из шликера, дорабатываю сырец, сушу медленно, чтобы избежать коробления. Делаю утильный обжиг.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step reveal">
+            <div class="stepTop">
+              <div class="num">6</div>
+              <div class="stepContent">
+                <h3>Декор и глазурь · 1–2 недели</h3>
+                <div class="stepMedia">
+                  <img src="assets/defolt_rosetka.png" alt="Декор и глазурь" loading="lazy" />
+                </div>
+                <p>Тестирую ангобы и глазури, наношу декор или роспись, провожу глазурный обжиг и сортирую партию.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step reveal">
+            <div class="stepTop">
+              <div class="num">7</div>
+              <div class="stepContent">
+                <h3>Контроль и отгрузка · до 1 недели</h3>
+                <div class="stepMedia">
+                  <img src="assets/defolt_rosetka.png" alt="Контроль и отгрузка" loading="lazy" />
+                </div>
+                <p>Тестовая сборка на стенде, маркировка, индивидуальная упаковка каждой накладки, доставка по РФ с опцией страховки.</p>
               </div>
             </div>
           </div>
@@ -896,7 +1076,7 @@
           <div class="step reveal" style="display:grid; place-items:center; text-align:center; padding: 22px;">
             <img src="assets/cream.png" alt="Пример керамической накладки (сливочная)" style="width:min(320px, 92%); border-radius: 22px; box-shadow: 0 18px 45px rgba(0,0,0,.16); border: 1px solid rgba(255,255,255,.55);" loading="lazy" />
             <p style="margin: 14px 0 0; color: var(--muted); font-weight: 650; line-height:1.5;">
-              Посадка проверяется до отправки — чтобы на объекте всё встало идеально.
+              Посадка проверяется до отправки — чтобы на объекте всё встало идеально. Новый дизайн + молд: 3–6 недель, повтор по молду: 2–4 недели.
             </p>
           </div>
         </div>
@@ -907,56 +1087,161 @@
     <section id="pricing">
       <div class="wrap">
         <p class="kicker reveal">Слайд 4 · ориентиры</p>
-        <h2 class="reveal">Объёмы и ориентиры по стоимости</h2>
+        <h2 class="reveal">Прозрачная модель ценообразования</h2>
         <p class="sub reveal">
-          Стоимость зависит от количества и сложности декора. Ниже — ориентиры, чтобы понять уровень проекта.
-          Точный расчёт делаю после короткого брифа.
+          Итоговая цена складывается из двух частей: фикс за разработку и подготовку производства + переменная стоимость одной накладки.
+          Ниже — цифры, с которыми удобно выходить к заказчику.
         </p>
 
-        <div class="pricing">
-          <div class="priceCard reveal">
-            <p class="title">Мини‑проект</p>
-            <p class="small">5 накладок · 1 дизайн</p>
-            <div class="price">от 250 000 ₽</div>
-            <ul class="list">
-              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 12l4 4 8-9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Дизайн и подбор палитры</li>
-              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 12l4 4 8-9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>3D + прототип</li>
-              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 12l4 4 8-9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Обжиги и упаковка</li>
+        <div class="twoCol">
+          <div class="focusCard reveal">
+            <h3>1) Разработка и подготовка</h3>
+            <ul>
+              <li>Бриф, замеры, тесты глины.</li>
+              <li>Инженерный и художественный 3D.</li>
+              <li>Прототип и примерка.</li>
+              <li>Мастер-модель, гипсовый молд, настройка шликера.</li>
             </ul>
+            <p class="note">Заложена средняя ставка 3D-специалиста и керамиста, материалы и тесты — без сюрпризов по срокам.</p>
           </div>
 
-          <div class="priceCard featured reveal">
-            <p class="title">Квартира</p>
-            <p class="small">10–30 накладок · 1–2 дизайна</p>
-            <div class="price">360 000–750 000 ₽</div>
-            <ul class="list">
-              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 12l4 4 8-9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Согласование по зонам</li>
-              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 12l4 4 8-9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Примерка на объекте</li>
-              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 12l4 4 8-9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Контроль партии</li>
+          <div class="focusCard reveal">
+            <h3>2) Производство одной накладки</h3>
+            <ul>
+              <li>Литьё, доработка сырца, сушка.</li>
+              <li>Утильный и глазурный обжиги.</li>
+              <li>Декор, роспись, сортировка.</li>
+              <li>Индивидуальная упаковка.</li>
             </ul>
-          </div>
-
-          <div class="priceCard reveal">
-            <p class="title">Дом / большой объект</p>
-            <p class="small">50+ накладок · 1–3 дизайна</p>
-            <div class="price">от 1 100 000 ₽</div>
-            <ul class="list">
-              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 12l4 4 8-9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Системный подход</li>
-              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 12l4 4 8-9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Серийные молды</li>
-              <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 12l4 4 8-9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Логистика и упаковка</li>
-            </ul>
+            <p class="note">В расчёте сразу заложен ~25% технологического брака — как норма для художественной керамики.</p>
           </div>
         </div>
 
-        <p class="hint reveal" style="margin-top: 16px;">
-          * Включает: разработку дизайна, 3D, прототип, молд, керамику, обжиги и упаковку.
-          Точный расчёт — после брифа по проекту.
+        <div class="tableWrap reveal">
+          <table class="packageTable" aria-label="Пакеты по количеству и бюджету">
+            <thead>
+              <tr>
+                <th>Пакет</th>
+                <th>Объём</th>
+                <th>Что входит</th>
+                <th>Ориентир бюджета</th>
+                <th>За 1 шт</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badgeSoft">Prototype & Mini</span></td>
+                <td>5 шт</td>
+                <td>Полная разработка дизайна, 1 молд, мини-серия для объекта</td>
+                <td><strong>от 250 000 ₽</strong></td>
+                <td>≈ 50 000 ₽</td>
+              </tr>
+              <tr>
+                <td><span class="badgeSoft">Small Project</span></td>
+                <td>10 шт</td>
+                <td>Дизайн, молд, серия 10 шт с тестами и примеркой</td>
+                <td><strong>от 360 000 ₽</strong></td>
+                <td>≈ 36 000 ₽</td>
+              </tr>
+              <tr>
+                <td><span class="badgeSoft">Project Line 30</span></td>
+                <td>30 шт</td>
+                <td>1 дизайн, 1 молд, стабильная серия для квартиры</td>
+                <td><strong>от 750 000 ₽</strong></td>
+                <td>≈ 25 000 ₽</td>
+              </tr>
+              <tr>
+                <td><span class="badgeSoft">Project Line 50</span></td>
+                <td>50 шт</td>
+                <td>Серия под дом, контроль партии и упаковка</td>
+                <td><strong>от 1 150 000 ₽</strong></td>
+                <td>≈ 23 000 ₽</td>
+              </tr>
+              <tr>
+                <td><span class="badgeSoft">Project Line 100</span></td>
+                <td>100 шт</td>
+                <td>1 дизайн + 1 молд, серийный выпуск для большого объекта</td>
+                <td><strong>от 2 200 000 ₽</strong></td>
+                <td>≈ 22 000 ₽</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="note reveal">
+          Бюджеты включают все этапы разработки, формы, тесты, обжиги, упаковку и логистику по РФ (кроме удалённых регионов).
+          Для повторных заказов по готовому молду стоимость за штуку заметно ниже — оплачивается только производство и декор.
         </p>
 
         <div class="reveal" style="margin-top: 18px; display:flex; gap: 14px; flex-wrap: wrap; align-items:center;">
           <img src="assets/mosaic.png" alt="Мозаичная накладка" style="width: 220px; height:auto; filter: drop-shadow(0 18px 28px rgba(0,0,0,.16));" loading="lazy">
           <img src="assets/flower.png" alt="Цветочная накладка" style="width: 220px; height:auto; border-radius: 22px; box-shadow: 0 18px 45px rgba(0,0,0,.16); border: 1px solid rgba(255,255,255,.55);" loading="lazy">
           <img src="assets/white.png" alt="Белая накладка" style="width: 220px; height:auto; border-radius: 22px; box-shadow: 0 18px 45px rgba(0,0,0,.16); border: 1px solid rgba(255,255,255,.55);" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMATS -->
+    <section id="formats">
+      <div class="wrap">
+        <p class="kicker reveal">Форматы сотрудничества</p>
+        <h2 class="reveal">Как подключиться к проекту</h2>
+        <div class="twoCol">
+          <div class="focusCard reveal">
+            <h3>Формат 1. Проект под ключ</h3>
+            <ul>
+              <li>1–3 уникальных дизайна под конкретный объект.</li>
+              <li>Эксклюзивность по договорённости — не повторяем на других проектах.</li>
+              <li>Быстрый бриф → концепции → прототип → серия.</li>
+            </ul>
+          </div>
+
+          <div class="focusCard reveal">
+            <h3>Формат 2. Партнёрство со студией</h3>
+            <ul>
+              <li>Делаем библиотеку базовых профилей/мотивов для ваших объектов.</li>
+              <li>На каждый новый проект — адаптация цвета/глазури под ТЗ.</li>
+              <li>Возможен white label: выпускаем под брендом студии.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="focusCard reveal" style="margin-top: 14px;">
+          <h3>Формат 3. Арт-коллаборации</h3>
+          <ul>
+            <li>Совместные серии с художниками/керамистами, лимитированные коллекции.</li>
+            <li>Вариант для шоу-румов, выставок, бутиков и частных арт-проектов.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TERMS -->
+    <section id="terms">
+      <div class="wrap">
+        <p class="kicker reveal">Условия и гарантии</p>
+        <h2 class="reveal">Прозрачно по оплате и контролю качества</h2>
+
+        <div class="twoCol">
+          <div class="focusCard reveal">
+            <h3>Оплата по этапам</h3>
+            <ul>
+              <li>50% — старт (3D, тесты, прототип, форма).</li>
+              <li>30% — после утверждения прототипа и мастер-модели.</li>
+              <li>20% — перед отгрузкой готовых изделий.</li>
+            </ul>
+            <p class="note">Работаем в рамках NDA — по запросу. Даю рекомендации по монтажу только с сертифицированными электриками.</p>
+          </div>
+
+          <div class="focusCard reveal">
+            <h3>Гарантии качества</h3>
+            <ul>
+              <li>Проверяю посадку на реальных механизмах и подрозетниках.</li>
+              <li>Заложен технологический брак, чтобы не было доплат за «внезапно треснувшее» изделие.</li>
+              <li>Упаковка и маркировка каждой накладки, логистика по РФ с опцией страховки.</li>
+            </ul>
+            <p class="note">Даю чек-лист примерки прототипа, чтобы у подрядчика на объекте всё встало с первого раза.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -1110,7 +1395,8 @@
 
     // ---- Active nav highlight ----
     const navLinks = Array.from(document.querySelectorAll('.navlinks .pill'));
-    const sections = ['benefits','process','pricing','contact'].map(id => document.getElementById(id)).filter(Boolean);
+    const sections = ['benefits','idea','offer','audience','process','pricing','formats','terms','contact']
+      .map(id => document.getElementById(id)).filter(Boolean);
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
@@ -1188,7 +1474,7 @@
 
     
     // ---- Keyboard "presentation" navigation (↓/↑, PgDn/PgUp, Space) ----
-    const order = ['top','benefits','process','pricing','contact']
+    const order = ['top','benefits','idea','offer','audience','process','pricing','formats','terms','contact']
       .map(id => document.getElementById(id) || (id==='top' ? document.getElementById('top') : null))
       .filter(Boolean);
 
