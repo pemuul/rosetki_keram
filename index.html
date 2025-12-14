@@ -727,8 +727,14 @@
       .twoCol{ grid-template-columns: 1fr; }
     }
     @media (max-width: 760px){
-      .nav{ flex-wrap: wrap; align-items: center; padding: 10px 0 8px; gap: 10px; }
-      .nav-toggle{ display:inline-flex; }
+      .nav{
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 0 8px;
+        gap: 10px;
+      }
+      .brand{ width: 100%; }
+      .nav-toggle{ display:inline-flex; width: 100%; justify-content: center; }
       .navlinks{
         width: 100%;
         flex-direction: column;
@@ -1484,13 +1490,13 @@
     }
 
     // ---- Active nav highlight ----
-    const navLinks = Array.from(document.querySelectorAll('.navlinks .pill'));
+    const navPills = Array.from(document.querySelectorAll('.navlinks .pill'));
     const sections = ['benefits','idea','offer','audience','process','pricing','formats','terms','contact']
       .map(id => document.getElementById(id)).filter(Boolean);
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
-          navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+          navPills.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
         }
       });
     }, { root: null, threshold: 0.35 });
