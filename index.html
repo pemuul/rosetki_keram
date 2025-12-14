@@ -353,7 +353,8 @@
       border: 1px solid rgba(11,31,42,.10);
       box-shadow: var(--shadow);
       overflow:hidden;
-      min-height: 380px;
+      min-height: 500px;
+      aspect-ratio: 1 / 1;
       position: relative;
       user-select: none;
       touch-action: none;
@@ -450,6 +451,7 @@
       align-items:flex-start;
       gap: 12px;
     }
+    .stepContent{ width: 100%; }
     .num{
       width: 42px; height: 42px;
       border-radius: 16px;
@@ -461,8 +463,24 @@
       box-shadow: 0 14px 28px rgba(0,0,0,.12);
       border: 1px solid rgba(255,255,255,.22);
     }
-    .step h3{ margin: 2px 0 4px; font-family: Unbounded, Manrope; font-size: 15.5px; }
+    .step h3{ margin: 2px 0 8px; font-family: Unbounded, Manrope; font-size: 15.5px; }
     .step p{ margin: 0; color: var(--muted); font-size: 14.4px; line-height: 1.65; }
+    .stepMedia{
+      width: 100%;
+      height: 120px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(11,31,42,.08);
+      box-shadow: 0 10px 20px rgba(0,0,0,.08);
+      margin: 0 0 10px;
+    }
+    .stepMedia img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
     /* Pricing */
     .pricing{
@@ -769,7 +787,7 @@
             </div>
 
             <div class="base" aria-hidden="true">
-              <img src="assets/white.png" alt="Обычная пластиковая розетка" />
+              <img src="assets/defolt_rosetka.png" alt="Обычная пластиковая розетка" />
             </div>
 
             <div class="top" id="compareTop">
@@ -813,8 +831,11 @@
           <div class="step reveal">
             <div class="stepTop">
               <div class="num">1</div>
-              <div>
+              <div class="stepContent">
                 <h3>Обсуждаем проект</h3>
+                <div class="stepMedia">
+                  <img src="assets/defolt_rosetka.png" alt="Обсуждаем проект" loading="lazy" />
+                </div>
                 <p>Интерьер, палитра, количество точек, сроки. Уточняю стиль, материалы стен и зоны.</p>
               </div>
             </div>
@@ -823,8 +844,11 @@
           <div class="step reveal">
             <div class="stepTop">
               <div class="num">2</div>
-              <div>
+              <div class="stepContent">
                 <h3>Снимаем размеры</h3>
+                <div class="stepMedia">
+                  <img src="assets/defolt_rosetka.png" alt="Снимаем размеры" loading="lazy" />
+                </div>
                 <p>Вы присылаете пластиковую накладку — я делаю 3D‑модель посадки с учётом усадки керамики.</p>
               </div>
             </div>
@@ -833,8 +857,11 @@
           <div class="step reveal">
             <div class="stepTop">
               <div class="num">3</div>
-              <div>
+              <div class="stepContent">
                 <h3>Прототип и примерка</h3>
+                <div class="stepMedia">
+                  <img src="assets/defolt_rosetka.png" alt="Прототип и примерка" loading="lazy" />
+                </div>
                 <p>Печатаю пластиковый прототип. Вы примеряете на объекте и утверждаете посадку.</p>
               </div>
             </div>
@@ -843,8 +870,11 @@
           <div class="step reveal">
             <div class="stepTop">
               <div class="num">4</div>
-              <div>
+              <div class="stepContent">
                 <h3>Молд и керамика</h3>
+                <div class="stepMedia">
+                  <img src="assets/defolt_rosetka.png" alt="Молд и керамика" loading="lazy" />
+                </div>
                 <p>Делаю форму, отливаю, сушу, обжигаю два раза, декорирую и глазурую.</p>
               </div>
             </div>
@@ -853,8 +883,11 @@
           <div class="step reveal">
             <div class="stepTop">
               <div class="num">5</div>
-              <div>
+              <div class="stepContent">
                 <h3>Контроль и отправка</h3>
+                <div class="stepMedia">
+                  <img src="assets/defolt_rosetka.png" alt="Контроль и отправка" loading="lazy" />
+                </div>
                 <p>Проверяю посадку на механизме, упаковываю каждое изделие и отправляю.</p>
               </div>
             </div>
