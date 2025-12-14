@@ -464,16 +464,18 @@
       border: 1px solid rgba(255,255,255,.22);
     }
     .step h3{ margin: 2px 0 8px; font-family: Unbounded, Manrope; font-size: 15.5px; }
+    .stepLayout{ display:flex; gap: 12px; align-items:flex-start; flex-wrap: wrap; }
+    .stepCopy{ flex: 1; }
     .step p{ margin: 0; color: var(--muted); font-size: 14.4px; line-height: 1.65; }
     .stepMedia{
-      width: 100%;
-      height: 120px;
+      flex: 0 0 150px;
+      aspect-ratio: 1 / 1;
       border-radius: var(--radius-md);
       overflow: hidden;
       background: rgba(255,255,255,.75);
       border: 1px solid rgba(11,31,42,.08);
       box-shadow: 0 10px 20px rgba(0,0,0,.08);
-      margin: 0 0 10px;
+      margin-left: auto;
     }
     .stepMedia img{
       width: 100%;
@@ -1001,8 +1003,14 @@
               <div class="num">1</div>
               <div class="stepContent">
                 <h3>ТЗ и выбор систем · 1–2 дня</h3>
-                <div class="stepMedia placeholder">step-1.jpg</div>
-                <p>Обсуждаем объект, стилистику, палитру. Фиксируем бренды механизмов, количество точек и уникальных дизайнов.</p>
+                <div class="stepLayout">
+                  <div class="stepCopy">
+                    <p>Обсуждаем объект, стилистику, палитру. Фиксируем бренды механизмов, количество точек и уникальных дизайнов.</p>
+                  </div>
+                  <div class="stepMedia">
+                    <img src="assets/step-1.jpg" alt="ТЗ и выбор систем" loading="lazy" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1012,8 +1020,14 @@
               <div class="num">2</div>
               <div class="stepContent">
                 <h3>Точная посадка и 3D · 1–2 недели</h3>
-                <div class="stepMedia placeholder">step-2.jpg</div>
-                <p>Получаю ваши пластиковые рамки, строю инженерную 3D-базу с учётом усадки глины, продумываю художественную форму.</p>
+                <div class="stepLayout">
+                  <div class="stepCopy">
+                    <p>Получаю ваши пластиковые рамки, строю инженерную 3D-базу с учётом усадки глины, продумываю художественную форму.</p>
+                  </div>
+                  <div class="stepMedia">
+                    <img src="assets/step-2.jpg" alt="Точная посадка и 3D" loading="lazy" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1023,8 +1037,14 @@
               <div class="num">3</div>
               <div class="stepContent">
                 <h3>Прототип и примерка · 1–2 недели</h3>
-                <div class="stepMedia placeholder">step-3.jpg</div>
-                <p>Печатаю пластиковый прототип, отправляю на объект. Проверка посадки по чек-листу, 1–2 итерации правок.</p>
+                <div class="stepLayout">
+                  <div class="stepCopy">
+                    <p>Печатаю пластиковый прототип, отправляю на объект. Проверка посадки по чек-листу, 1–2 итерации правок.</p>
+                  </div>
+                  <div class="stepMedia">
+                    <img src="assets/step-3.jpg" alt="Прототип и примерка" loading="lazy" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1034,8 +1054,14 @@
               <div class="num">4</div>
               <div class="stepContent">
                 <h3>Мастер-модель и молд · 1–2 недели</h3>
-                <div class="stepMedia placeholder">step-4.jpg</div>
-                <p>Печатаю мастер-модель, снимаю гипсовую форму (одиночную или составную), сушу и готовлю к серии.</p>
+                <div class="stepLayout">
+                  <div class="stepCopy">
+                    <p>Печатаю мастер-модель, снимаю гипсовую форму (одиночную или составную), сушу и готовлю к серии.</p>
+                  </div>
+                  <div class="stepMedia">
+                    <img src="assets/step-4.jpg" alt="Мастер-модель и молд" loading="lazy" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1045,8 +1071,14 @@
               <div class="num">5</div>
               <div class="stepContent">
                 <h3>Литьё, сушка, утиль · 1–2 недели</h3>
-                <div class="stepMedia placeholder">step-5.jpg</div>
-                <p>Лью серию из шликера, дорабатываю сырец, сушу медленно, чтобы избежать коробления. Делаю утильный обжиг.</p>
+                <div class="stepLayout">
+                  <div class="stepCopy">
+                    <p>Лью серию из шликера, дорабатываю сырец, сушу медленно, чтобы избежать коробления. Делаю утильный обжиг.</p>
+                  </div>
+                  <div class="stepMedia">
+                    <img src="assets/step-5.jpg" alt="Литьё, сушка, утиль" loading="lazy" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1056,8 +1088,14 @@
               <div class="num">6</div>
               <div class="stepContent">
                 <h3>Декор и глазурь · 1–2 недели</h3>
-                <div class="stepMedia placeholder">step-6.jpg</div>
-                <p>Тестирую ангобы и глазури, наношу декор или роспись, провожу глазурный обжиг и сортирую партию.</p>
+                <div class="stepLayout">
+                  <div class="stepCopy">
+                    <p>Тестирую ангобы и глазури, наношу декор или роспись, провожу глазурный обжиг и сортирую партию.</p>
+                  </div>
+                  <div class="stepMedia">
+                    <img src="assets/step-6.jpg" alt="Декор и глазурь" loading="lazy" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1067,8 +1105,14 @@
               <div class="num">7</div>
               <div class="stepContent">
                 <h3>Контроль и отгрузка · до 1 недели</h3>
-                <div class="stepMedia placeholder">step-7.jpg</div>
-                <p>Тестовая сборка на стенде, маркировка, индивидуальная упаковка каждой накладки, доставка по РФ с опцией страховки.</p>
+                <div class="stepLayout">
+                  <div class="stepCopy">
+                    <p>Тестовая сборка на стенде, маркировка, индивидуальная упаковка каждой накладки, доставка по РФ с опцией страховки.</p>
+                  </div>
+                  <div class="stepMedia">
+                    <img src="assets/step-7.jpg" alt="Контроль и отгрузка" loading="lazy" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
