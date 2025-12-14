@@ -354,6 +354,8 @@
       overflow:hidden;
       min-height: 380px;
       position: relative;
+      user-select: none;
+      touch-action: none;
     }
     .compare .label{
       position:absolute;
@@ -439,8 +441,9 @@
       box-shadow: 0 16px 32px rgba(0,0,0,.18);
       z-index: 5;
       display:grid; place-items:center;
-      pointer-events:none;
+      cursor: grab;
     }
+    .compare .handle:active{ cursor: grabbing; }
     .compare .handle svg{ width: 16px; height: 16px; color: rgba(255,255,255,.92); opacity: .95; }
 
     .rangeRow{
@@ -1082,16 +1085,45 @@
 
     // ---- Compare slider ----
     const range = document.getElementById('compareRange');
+    const compare = document.querySelector('.compare');
     const topLayer = document.getElementById('compareTop');
     const handle = document.getElementById('compareHandle');
-    function setCompare(v){
+    let isDragging = false;
+
+    function setCompare(v, skipRangeUpdate = false){
       const clamped = Math.max(10, Math.min(90, v));
       topLayer.style.width = clamped + '%';
       handle.style.left = 'calc(' + clamped + '% - 14px)';
+      if(range && !skipRangeUpdate) range.value = clamped;
     }
-    if(range){
+
+    function handlePointer(clientX){
+      const rect = compare.getBoundingClientRect();
+      const percent = ((clientX - rect.left) / rect.width) * 100;
+      setCompare(percent);
+    }
+
+    if(compare && range && topLayer && handle){
       setCompare(parseInt(range.value, 10));
+
       range.addEventListener('input', (e) => setCompare(parseInt(e.target.value, 10)));
+
+      compare.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        compare.setPointerCapture?.(e.pointerId);
+        handlePointer(e.clientX);
+      });
+
+      window.addEventListener('pointermove', (e) => {
+        if(!isDragging) return;
+        handlePointer(e.clientX);
+      });
+
+      window.addEventListener('pointerup', (e) => {
+        if(!isDragging) return;
+        isDragging = false;
+        compare.releasePointerCapture?.(e.pointerId);
+      });
     }
 
     // ---- Active nav highlight ----
