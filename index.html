@@ -82,8 +82,9 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 18px;
+      gap: 14px;
       padding: 14px 0;
+      flex-wrap: nowrap;
     }
     .brand{
       display:flex; align-items:center; gap: 10px;
@@ -108,7 +109,25 @@
       align-items:center;
       flex-wrap: wrap;
       justify-content: flex-end;
+      transition: max-height .24s ease, opacity .2s ease;
     }
+    .nav-toggle{
+      display:none;
+      margin-left: auto;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(11,31,42,.12);
+      background: rgba(255,255,255,.72);
+      color: rgba(11,31,42,.9);
+      font-weight: 800;
+      letter-spacing: .2px;
+      box-shadow: var(--shadow2);
+      gap: 8px;
+      align-items:center;
+      cursor: pointer;
+    }
+    .nav-toggle svg{ width: 18px; height: 18px; }
+    .nav-toggle[aria-expanded="true"]{ background: rgba(11,31,42,.9); color: rgba(255,255,255,.96); border-color: rgba(11,31,42,.9); }
     .pill{
       display:inline-flex;
       align-items:center;
@@ -708,11 +727,24 @@
       .twoCol{ grid-template-columns: 1fr; }
     }
     @media (max-width: 760px){
-      .nav{ flex-direction: column; align-items: flex-start; padding: 12px 0; gap: 12px; }
-      .navlinks{ width: 100%; justify-content: flex-start; overflow-x: auto; padding-bottom: 6px; gap: 8px; }
-      .navlinks::-webkit-scrollbar{ height: 6px; }
-      .navlinks::-webkit-scrollbar-thumb{ background: rgba(11,31,42,.14); border-radius: 999px; }
-      .pill{ flex: 0 0 auto; }
+      .nav{ flex-wrap: wrap; align-items: center; padding: 10px 0 8px; gap: 10px; }
+      .nav-toggle{ display:inline-flex; }
+      .navlinks{
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        padding: 0;
+        background: rgba(255,255,255,.88);
+        border: 1px solid rgba(11,31,42,.08);
+        border-radius: 16px;
+        box-shadow: 0 16px 38px rgba(0,0,0,.10);
+      }
+      .navlinks.open{ max-height: 500px; opacity: 1; padding: 10px; }
+      .pill{ width: 100%; justify-content: flex-start; }
     }
     @media (max-width: 560px){
       section{ padding: 66px 0; }
@@ -746,7 +778,14 @@
         </div>
       </a>
 
-      <nav class="navlinks" aria-label="Навигация">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navmenu">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7.5h16M4 12h16M4 16.5h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        Меню
+      </button>
+
+      <nav class="navlinks" id="navmenu" aria-label="Навигация">
         <a class="pill" href="#benefits">Зачем</a>
         <a class="pill" href="#idea">Предложение</a>
         <a class="pill" href="#process">Процесс</a>
@@ -1385,6 +1424,23 @@
   </main>
 
   <script>
+    // ---- Mobile nav toggle ----
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.getElementById('navmenu');
+    const navLinkItems = navLinks?.querySelectorAll('a');
+
+    if(navToggle && navLinks){
+      navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      navLinkItems?.forEach((link) => link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }));
+    }
+
     // ---- Print / "show as presentation" ----
     document.getElementById('printBtn')?.addEventListener('click', () => window.print());
 
