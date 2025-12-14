@@ -11,7 +11,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/icon2.png" type="image/png" />
+  <link rel="alternate icon" href="assets/icon2.png" />
+  <link rel="apple-touch-icon" href="assets/icon2.png" />
 
   <style>
     :root{
@@ -95,12 +97,13 @@
     .brand .mark{
       width: 34px; height: 34px;
       border-radius: 12px;
-      background: linear-gradient(135deg, rgba(255,106,61,.95), rgba(27,122,163,.95));
+      background: rgba(255,255,255,.96);
       display:grid; place-items:center;
       box-shadow: 0 10px 22px rgba(0,0,0,.12);
-      border: 1px solid rgba(255,255,255,.55);
+      border: 1px solid rgba(11,31,42,.12);
+      overflow: hidden;
     }
-    .brand .mark svg{ width: 18px; height: 18px; }
+    .brand .mark img{ width: 22px; height: 22px; display:block; }
     .brand small{ display:block; font-family: Manrope; font-weight: 600; opacity: .75; margin-top: 2px; }
 
     .navlinks{
@@ -772,11 +775,7 @@
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="На главную">
         <span class="mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M7.6 4.5c2.8-1.6 6-1.6 8.8 0 2.8 1.6 4.4 4.4 4.4 7.5s-1.6 5.9-4.4 7.5c-2.8 1.6-6 1.6-8.8 0C4.8 18 3.2 15.2 3.2 12s1.6-5.9 4.4-7.5Z" stroke="rgba(255,255,255,.92)" stroke-width="1.6"/>
-            <path d="M9.2 12a1.4 1.4 0 1 0 0 .01Z" fill="rgba(255,255,255,.92)"/>
-            <path d="M14.8 12a1.4 1.4 0 1 0 0 .01Z" fill="rgba(255,255,255,.92)"/>
-          </svg>
+          <img src="assets/icon2.png" alt="" loading="lazy" />
         </span>
         <div>
           <div>Керамические накладки</div>
@@ -1053,7 +1052,7 @@
                     <p>Обсуждаем объект, стилистику, палитру. Фиксируем бренды механизмов, количество точек и уникальных дизайнов.</p>
                   </div>
                   <div class="stepMedia">
-                    <img src="assets/step-1.jpg" alt="ТЗ и выбор систем" loading="lazy" />
+                    <img src="assets/step-1.png" alt="ТЗ и выбор систем" loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -1070,7 +1069,7 @@
                     <p>Получаю ваши пластиковые рамки, строю инженерную 3D-базу с учётом усадки глины, продумываю художественную форму.</p>
                   </div>
                   <div class="stepMedia">
-                    <img src="assets/step-2.jpg" alt="Точная посадка и 3D" loading="lazy" />
+                    <img src="assets/step-2.png" alt="Точная посадка и 3D" loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -1087,7 +1086,7 @@
                     <p>Печатаю пластиковый прототип, отправляю на объект. Проверка посадки по чек-листу, 1–2 итерации правок.</p>
                   </div>
                   <div class="stepMedia">
-                    <img src="assets/step-3.jpg" alt="Прототип и примерка" loading="lazy" />
+                    <img src="assets/step-3.png" alt="Прототип и примерка" loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -1104,7 +1103,7 @@
                     <p>Печатаю мастер-модель, снимаю гипсовую форму (одиночную или составную), сушу и готовлю к серии.</p>
                   </div>
                   <div class="stepMedia">
-                    <img src="assets/step-4.jpg" alt="Мастер-модель и молд" loading="lazy" />
+                    <img src="assets/step-4.png" alt="Мастер-модель и молд" loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -1121,7 +1120,7 @@
                     <p>Лью серию из шликера, дорабатываю сырец, сушу медленно, чтобы избежать коробления. Делаю утильный обжиг.</p>
                   </div>
                   <div class="stepMedia">
-                    <img src="assets/step-5.jpg" alt="Литьё, сушка, утиль" loading="lazy" />
+                    <img src="assets/step-5.png" alt="Литьё, сушка, утиль" loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -1138,7 +1137,7 @@
                     <p>Тестирую ангобы и глазури, наношу декор или роспись, провожу глазурный обжиг и сортирую партию.</p>
                   </div>
                   <div class="stepMedia">
-                    <img src="assets/step-6.jpg" alt="Декор и глазурь" loading="lazy" />
+                    <img src="assets/step-6.png" alt="Декор и глазурь" loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -1155,7 +1154,7 @@
                     <p>Тестовая сборка на стенде, маркировка, индивидуальная упаковка каждой накладки, доставка по РФ с опцией страховки.</p>
                   </div>
                   <div class="stepMedia">
-                    <img src="assets/step-7.jpg" alt="Контроль и отгрузка" loading="lazy" />
+                    <img src="assets/step-7.png" alt="Контроль и отгрузка" loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -1373,7 +1372,7 @@
 
           <div class="contactCard reveal">
             <h3 style="margin:0 0 8px;font-family:Unbounded;">Контакты</h3>
-            <p class="small" style="margin:0 0 12px;">Ниже — мои контакты, каждую строку можно скопировать кнопкой справа.</p>
+            <p class="small" style="margin:0 0 12px;">Ниже — мои контакты: имя и телефон можно скопировать, а для Telegram и почты есть переход по кнопке справа.</p>
 
             <div class="contactRow">
               <div>
@@ -1396,7 +1395,7 @@
                 <div class="label2">Telegram</div>
                 <div class="value" data-copy="@Pemuul">@Pemuul</div>
               </div>
-              <button class="btn" type="button" data-copy-btn="@Pemuul" style="padding:10px 12px;">Скопировать</button>
+              <a class="btn" href="https://t.me/Pemuul" target="_blank" rel="noopener" style="padding:10px 12px;">Перейти</a>
             </div>
 
             <div class="contactRow">
@@ -1404,7 +1403,7 @@
                 <div class="label2">E‑mail</div>
                 <div class="value" data-copy="pemuul@inbox.ru">pemuul@inbox.ru</div>
               </div>
-              <button class="btn" type="button" data-copy-btn="pemuul@inbox.ru" style="padding:10px 12px;">Скопировать</button>
+              <a class="btn" href="mailto:pemuul@inbox.ru" style="padding:10px 12px;">Перейти</a>
             </div>
 
             <div style="margin-top: 14px; display:flex; gap: 12px; align-items:center; flex-wrap: wrap;">
@@ -1511,16 +1510,32 @@
 
     // ---- Copy buttons ----
     async function copyText(text){
-      try{
-        await navigator.clipboard.writeText(text);
-        toast('Скопировано');
-      }catch(e){
-        // fallback
+      const snippet = (text || '').toString().trim();
+      const label = snippet.length > 34 ? snippet.slice(0, 32) + '…' : snippet;
+      const successToast = () => toast(label ? `Скопировано: ${label}` : 'Скопировано');
+
+      const fallbackCopy = () => {
         const ta = document.createElement('textarea');
-        ta.value = text; document.body.appendChild(ta);
+        ta.value = snippet;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
         ta.select(); document.execCommand('copy');
         document.body.removeChild(ta);
-        toast('Скопировано');
+        successToast();
+      };
+
+      if(navigator.clipboard?.writeText){
+        try{
+          await navigator.clipboard.writeText(snippet);
+          successToast();
+          return;
+        }catch(e){
+          fallbackCopy();
+        }
+      }else{
+        fallbackCopy();
       }
     }
     document.querySelectorAll('[data-copy-btn]').forEach(btn => {
