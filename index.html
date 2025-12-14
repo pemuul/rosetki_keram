@@ -1046,13 +1046,6 @@
       const clamped = Math.max(10, Math.min(90, v));
       compare.style.setProperty('--split', clamped + '%');
       handle.style.left = 'calc(' + clamped + '% - 14px)';
-      if(range && !skipRangeUpdate) range.value = clamped;
-    }
-
-    function handlePointer(clientX){
-      const rect = compare.getBoundingClientRect();
-      const percent = ((clientX - rect.left) / rect.width) * 100;
-      setCompare(percent);
     }
 
     function handlePointer(clientX){
