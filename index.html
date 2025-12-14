@@ -347,6 +347,7 @@
       margin-top: 18px;
     }
     .compare{
+      --split: 56%;
       border-radius: var(--radius-lg);
       background: rgba(255,255,255,.60);
       border: 1px solid rgba(11,31,42,.10);
@@ -354,6 +355,8 @@
       overflow:hidden;
       min-height: 380px;
       position: relative;
+      user-select: none;
+      touch-action: none;
     }
     .compare .label{
       position:absolute;
@@ -378,59 +381,27 @@
     .compare .base,
     .compare .top{
       position:absolute; inset: 0;
+      width: 100%; height: 100%;
     }
-    .compare .base{
-      background:
-        radial-gradient(700px 400px at 20% 15%, rgba(11,31,42,.08), transparent 60%),
-        linear-gradient(180deg, rgba(245,246,247,1), rgba(236,238,240,1));
-      display:grid; place-items:center;
-    }
-    .plasticMock{
-      width: min(520px, 86%);
-      aspect-ratio: 1/1;
-      border-radius: 26px;
-      background: linear-gradient(180deg, #ffffff, #f1f3f5);
-      border: 1px solid rgba(11,31,42,.12);
-      box-shadow: 0 18px 40px rgba(0,0,0,.14);
-      position: relative;
-      overflow:hidden;
-    }
-    .plasticMock::before{
-      content:"";
-      position:absolute; inset: 20% 20%;
-      border-radius: 24px;
-      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.9), rgba(0,0,0,.03));
-      border: 1px solid rgba(11,31,42,.08);
-      box-shadow: inset 0 12px 24px rgba(0,0,0,.06);
-    }
-    .plasticMock::after{
-      content:"";
-      position:absolute;
-      width: 10px; height: 10px;
-      left: 50%; top: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(11,31,42,.35);
-      border-radius: 3px;
-      box-shadow:
-        -48px 0 0 4px rgba(11,31,42,.62),
-        48px 0 0 4px rgba(11,31,42,.62),
-        0 0 0 10px rgba(11,31,42,.08);
-    }
-
-    .compare .top{
-      width: 56%; /* controlled by JS slider */
-      overflow:hidden;
-      border-right: 2px solid rgba(255,255,255,.70);
-    }
+    .compare .base img,
     .compare .top img{
       width: 100%;
       height: 100%;
       object-fit: cover;
       transform: translateZ(0);
     }
+    .compare .top{ clip-path: inset(0 calc(100% - var(--split)) 0 0); }
+    .compare .top::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      border-right: 2px solid rgba(255,255,255,.72);
+      clip-path: inset(0 calc(100% - var(--split)) 0 0);
+    }
     .compare .handle{
       position:absolute;
-      top: 50%; left: calc(56% - 14px);
+      top: 50%; left: calc(var(--split) - 14px);
       width: 28px; height: 52px;
       transform: translateY(-50%);
       border-radius: 999px;
@@ -439,20 +410,11 @@
       box-shadow: 0 16px 32px rgba(0,0,0,.18);
       z-index: 5;
       display:grid; place-items:center;
-      pointer-events:none;
+      cursor: grab;
     }
+    .compare .handle:active{ cursor: grabbing; }
     .compare .handle svg{ width: 16px; height: 16px; color: rgba(255,255,255,.92); opacity: .95; }
 
-    .rangeRow{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      margin-top: 12px;
-    }
-    input[type="range"]{
-      width: 100%;
-      accent-color: var(--accent2);
-    }
     .hint{
       color: var(--muted2);
       font-size: 13px;
@@ -806,8 +768,8 @@
               <span class="badge ceramic">керамика · акцент</span>
             </div>
 
-            <div class="base">
-              <div class="plasticMock" aria-hidden="true"></div>
+            <div class="base" aria-hidden="true">
+              <img src="assets/white.png" alt="Обычная пластиковая розетка" />
             </div>
 
             <div class="top" id="compareTop">
@@ -828,12 +790,6 @@
               На практике «вылезающий» пластик очень заметен на объектах с дорогими материалами.
               Керамика, наоборот, поддерживает стиль и выглядит как дизайнерская деталь.
             </p>
-
-            <div class="rangeRow">
-              <span style="font-weight:800; font-size:13px; opacity:.7;">Пластик</span>
-              <input id="compareRange" type="range" min="10" max="90" value="56" aria-label="Слайдер сравнения">
-              <span style="font-weight:800; font-size:13px; opacity:.7;">Керамика</span>
-            </div>
 
             <p class="hint">
               <b>Фраза от меня:</b><br>
@@ -1081,17 +1037,42 @@
     document.getElementById('printBtn')?.addEventListener('click', () => window.print());
 
     // ---- Compare slider ----
-    const range = document.getElementById('compareRange');
+    const compare = document.querySelector('.compare');
     const topLayer = document.getElementById('compareTop');
     const handle = document.getElementById('compareHandle');
+    let isDragging = false;
+
     function setCompare(v){
       const clamped = Math.max(10, Math.min(90, v));
-      topLayer.style.width = clamped + '%';
+      compare.style.setProperty('--split', clamped + '%');
       handle.style.left = 'calc(' + clamped + '% - 14px)';
     }
-    if(range){
-      setCompare(parseInt(range.value, 10));
-      range.addEventListener('input', (e) => setCompare(parseInt(e.target.value, 10)));
+
+    function handlePointer(clientX){
+      const rect = compare.getBoundingClientRect();
+      const percent = ((clientX - rect.left) / rect.width) * 100;
+      setCompare(percent);
+    }
+
+    if(compare && topLayer && handle){
+      setCompare(56);
+
+      compare.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        compare.setPointerCapture?.(e.pointerId);
+        handlePointer(e.clientX);
+      });
+
+      window.addEventListener('pointermove', (e) => {
+        if(!isDragging) return;
+        handlePointer(e.clientX);
+      });
+
+      window.addEventListener('pointerup', (e) => {
+        if(!isDragging) return;
+        isDragging = false;
+        compare.releasePointerCapture?.(e.pointerId);
+      });
     }
 
     // ---- Active nav highlight ----
