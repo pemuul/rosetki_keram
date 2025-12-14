@@ -82,8 +82,9 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap: 18px;
+      gap: 14px;
       padding: 14px 0;
+      flex-wrap: nowrap;
     }
     .brand{
       display:flex; align-items:center; gap: 10px;
@@ -108,7 +109,25 @@
       align-items:center;
       flex-wrap: wrap;
       justify-content: flex-end;
+      transition: max-height .24s ease, opacity .2s ease;
     }
+    .nav-toggle{
+      display:none;
+      margin-left: auto;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(11,31,42,.12);
+      background: rgba(255,255,255,.72);
+      color: rgba(11,31,42,.9);
+      font-weight: 800;
+      letter-spacing: .2px;
+      box-shadow: var(--shadow2);
+      gap: 8px;
+      align-items:center;
+      cursor: pointer;
+    }
+    .nav-toggle svg{ width: 18px; height: 18px; }
+    .nav-toggle[aria-expanded="true"]{ background: rgba(11,31,42,.9); color: rgba(255,255,255,.96); border-color: rgba(11,31,42,.9); }
     .pill{
       display:inline-flex;
       align-items:center;
@@ -464,22 +483,35 @@
       border: 1px solid rgba(255,255,255,.22);
     }
     .step h3{ margin: 2px 0 8px; font-family: Unbounded, Manrope; font-size: 15.5px; }
+    .stepLayout{ display:flex; gap: 12px; align-items:flex-start; flex-wrap: wrap; }
+    .stepCopy{ flex: 1; }
     .step p{ margin: 0; color: var(--muted); font-size: 14.4px; line-height: 1.65; }
     .stepMedia{
-      width: 100%;
-      height: 120px;
+      flex: 0 0 150px;
+      aspect-ratio: 1 / 1;
       border-radius: var(--radius-md);
       overflow: hidden;
       background: rgba(255,255,255,.75);
       border: 1px solid rgba(11,31,42,.08);
       box-shadow: 0 10px 20px rgba(0,0,0,.08);
-      margin: 0 0 10px;
+      margin-left: auto;
     }
     .stepMedia img{
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+    }
+    .stepMedia.placeholder{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--muted2);
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: .2px;
+      border-style: dashed;
+      background: rgba(255,255,255,.86);
     }
 
     /* Pricing */
@@ -694,6 +726,32 @@
       .splitGrid{ grid-template-columns: 1fr; }
       .twoCol{ grid-template-columns: 1fr; }
     }
+    @media (max-width: 760px){
+      .nav{
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 0 8px;
+        gap: 10px;
+      }
+      .brand{ width: 100%; }
+      .nav-toggle{ display:inline-flex; width: 100%; justify-content: center; }
+      .navlinks{
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        padding: 0;
+        background: rgba(255,255,255,.88);
+        border: 1px solid rgba(11,31,42,.08);
+        border-radius: 16px;
+        box-shadow: 0 16px 38px rgba(0,0,0,.10);
+      }
+      .navlinks.open{ max-height: 500px; opacity: 1; padding: 10px; }
+      .pill{ width: 100%; justify-content: flex-start; }
+    }
     @media (max-width: 560px){
       section{ padding: 66px 0; }
       .wrap{ width: min(var(--max), calc(100% - 30px)); }
@@ -726,7 +784,14 @@
         </div>
       </a>
 
-      <nav class="navlinks" aria-label="Навигация">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="navmenu">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7.5h16M4 12h16M4 16.5h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+        Меню
+      </button>
+
+      <nav class="navlinks" id="navmenu" aria-label="Навигация">
         <a class="pill" href="#benefits">Зачем</a>
         <a class="pill" href="#idea">Предложение</a>
         <a class="pill" href="#process">Процесс</a>
@@ -861,10 +926,6 @@
               Керамика, наоборот, поддерживает стиль и выглядит как дизайнерская деталь.
             </p>
 
-            <p class="hint">
-              <b>Фраза от меня:</b><br>
-              «Я подгоняю форму и цвет под конкретный проект — это не серийный пластик, а ручная керамика».
-            </p>
           </div>
         </div>
       </div>
@@ -987,10 +1048,14 @@
               <div class="num">1</div>
               <div class="stepContent">
                 <h3>ТЗ и выбор систем · 1–2 дня</h3>
-                <div class="stepMedia">
-                  <img src="assets/defolt_rosetka.png" alt="ТЗ и выбор систем" loading="lazy" />
+                <div class="stepLayout">
+                  <div class="stepCopy">
+                    <p>Обсуждаем объект, стилистику, палитру. Фиксируем бренды механизмов, количество точек и уникальных дизайнов.</p>
+                  </div>
+                  <div class="stepMedia">
+                    <img src="assets/step-1.jpg" alt="ТЗ и выбор систем" loading="lazy" />
+                  </div>
                 </div>
-                <p>Обсуждаем объект, стилистику, палитру. Фиксируем бренды механизмов, количество точек и уникальных дизайнов.</p>
               </div>
             </div>
           </div>
@@ -1000,10 +1065,14 @@
               <div class="num">2</div>
               <div class="stepContent">
                 <h3>Точная посадка и 3D · 1–2 недели</h3>
-                <div class="stepMedia">
-                  <img src="assets/defolt_rosetka.png" alt="Точная посадка и 3D" loading="lazy" />
+                <div class="stepLayout">
+                  <div class="stepCopy">
+                    <p>Получаю ваши пластиковые рамки, строю инженерную 3D-базу с учётом усадки глины, продумываю художественную форму.</p>
+                  </div>
+                  <div class="stepMedia">
+                    <img src="assets/step-2.jpg" alt="Точная посадка и 3D" loading="lazy" />
+                  </div>
                 </div>
-                <p>Получаю ваши пластиковые рамки, строю инженерную 3D-базу с учётом усадки глины, продумываю художественную форму.</p>
               </div>
             </div>
           </div>
@@ -1013,10 +1082,14 @@
               <div class="num">3</div>
               <div class="stepContent">
                 <h3>Прототип и примерка · 1–2 недели</h3>
-                <div class="stepMedia">
-                  <img src="assets/defolt_rosetka.png" alt="Прототип и примерка" loading="lazy" />
+                <div class="stepLayout">
+                  <div class="stepCopy">
+                    <p>Печатаю пластиковый прототип, отправляю на объект. Проверка посадки по чек-листу, 1–2 итерации правок.</p>
+                  </div>
+                  <div class="stepMedia">
+                    <img src="assets/step-3.jpg" alt="Прототип и примерка" loading="lazy" />
+                  </div>
                 </div>
-                <p>Печатаю пластиковый прототип, отправляю на объект. Проверка посадки по чек-листу, 1–2 итерации правок.</p>
               </div>
             </div>
           </div>
@@ -1026,10 +1099,14 @@
               <div class="num">4</div>
               <div class="stepContent">
                 <h3>Мастер-модель и молд · 1–2 недели</h3>
-                <div class="stepMedia">
-                  <img src="assets/defolt_rosetka.png" alt="Мастер-модель и молд" loading="lazy" />
+                <div class="stepLayout">
+                  <div class="stepCopy">
+                    <p>Печатаю мастер-модель, снимаю гипсовую форму (одиночную или составную), сушу и готовлю к серии.</p>
+                  </div>
+                  <div class="stepMedia">
+                    <img src="assets/step-4.jpg" alt="Мастер-модель и молд" loading="lazy" />
+                  </div>
                 </div>
-                <p>Печатаю мастер-модель, снимаю гипсовую форму (одиночную или составную), сушу и готовлю к серии.</p>
               </div>
             </div>
           </div>
@@ -1039,10 +1116,14 @@
               <div class="num">5</div>
               <div class="stepContent">
                 <h3>Литьё, сушка, утиль · 1–2 недели</h3>
-                <div class="stepMedia">
-                  <img src="assets/defolt_rosetka.png" alt="Литьё, сушка, утильный обжиг" loading="lazy" />
+                <div class="stepLayout">
+                  <div class="stepCopy">
+                    <p>Лью серию из шликера, дорабатываю сырец, сушу медленно, чтобы избежать коробления. Делаю утильный обжиг.</p>
+                  </div>
+                  <div class="stepMedia">
+                    <img src="assets/step-5.jpg" alt="Литьё, сушка, утиль" loading="lazy" />
+                  </div>
                 </div>
-                <p>Лью серию из шликера, дорабатываю сырец, сушу медленно, чтобы избежать коробления. Делаю утильный обжиг.</p>
               </div>
             </div>
           </div>
@@ -1052,10 +1133,14 @@
               <div class="num">6</div>
               <div class="stepContent">
                 <h3>Декор и глазурь · 1–2 недели</h3>
-                <div class="stepMedia">
-                  <img src="assets/defolt_rosetka.png" alt="Декор и глазурь" loading="lazy" />
+                <div class="stepLayout">
+                  <div class="stepCopy">
+                    <p>Тестирую ангобы и глазури, наношу декор или роспись, провожу глазурный обжиг и сортирую партию.</p>
+                  </div>
+                  <div class="stepMedia">
+                    <img src="assets/step-6.jpg" alt="Декор и глазурь" loading="lazy" />
+                  </div>
                 </div>
-                <p>Тестирую ангобы и глазури, наношу декор или роспись, провожу глазурный обжиг и сортирую партию.</p>
               </div>
             </div>
           </div>
@@ -1065,20 +1150,18 @@
               <div class="num">7</div>
               <div class="stepContent">
                 <h3>Контроль и отгрузка · до 1 недели</h3>
-                <div class="stepMedia">
-                  <img src="assets/defolt_rosetka.png" alt="Контроль и отгрузка" loading="lazy" />
+                <div class="stepLayout">
+                  <div class="stepCopy">
+                    <p>Тестовая сборка на стенде, маркировка, индивидуальная упаковка каждой накладки, доставка по РФ с опцией страховки.</p>
+                  </div>
+                  <div class="stepMedia">
+                    <img src="assets/step-7.jpg" alt="Контроль и отгрузка" loading="lazy" />
+                  </div>
                 </div>
-                <p>Тестовая сборка на стенде, маркировка, индивидуальная упаковка каждой накладки, доставка по РФ с опцией страховки.</p>
               </div>
             </div>
           </div>
 
-          <div class="step reveal" style="display:grid; place-items:center; text-align:center; padding: 22px;">
-            <img src="assets/cream.png" alt="Пример керамической накладки (сливочная)" style="width:min(320px, 92%); border-radius: 22px; box-shadow: 0 18px 45px rgba(0,0,0,.16); border: 1px solid rgba(255,255,255,.55);" loading="lazy" />
-            <p style="margin: 14px 0 0; color: var(--muted); font-weight: 650; line-height:1.5;">
-              Посадка проверяется до отправки — чтобы на объекте всё встало идеально. Новый дизайн + молд: 3–6 недель, повтор по молду: 2–4 недели.
-            </p>
-          </div>
         </div>
       </div>
     </section>
@@ -1133,36 +1216,36 @@
                 <td><span class="badgeSoft">Prototype & Mini</span></td>
                 <td>5 шт</td>
                 <td>Полная разработка дизайна, 1 молд, мини-серия для объекта</td>
-                <td><strong>от 250 000 ₽</strong></td>
-                <td>≈ 50 000 ₽</td>
+                <td><strong>от&nbsp;250&nbsp;000&nbsp;₽</strong></td>
+                <td>≈&nbsp;50&nbsp;000&nbsp;₽</td>
               </tr>
               <tr>
                 <td><span class="badgeSoft">Small Project</span></td>
                 <td>10 шт</td>
                 <td>Дизайн, молд, серия 10 шт с тестами и примеркой</td>
-                <td><strong>от 360 000 ₽</strong></td>
-                <td>≈ 36 000 ₽</td>
+                <td><strong>от&nbsp;360&nbsp;000&nbsp;₽</strong></td>
+                <td>≈&nbsp;36&nbsp;000&nbsp;₽</td>
               </tr>
               <tr>
                 <td><span class="badgeSoft">Project Line 30</span></td>
                 <td>30 шт</td>
                 <td>1 дизайн, 1 молд, стабильная серия для квартиры</td>
-                <td><strong>от 750 000 ₽</strong></td>
-                <td>≈ 25 000 ₽</td>
+                <td><strong>от&nbsp;750&nbsp;000&nbsp;₽</strong></td>
+                <td>≈&nbsp;25&nbsp;000&nbsp;₽</td>
               </tr>
               <tr>
                 <td><span class="badgeSoft">Project Line 50</span></td>
                 <td>50 шт</td>
                 <td>Серия под дом, контроль партии и упаковка</td>
-                <td><strong>от 1 150 000 ₽</strong></td>
-                <td>≈ 23 000 ₽</td>
+                <td><strong>от&nbsp;1&nbsp;150&nbsp;000&nbsp;₽</strong></td>
+                <td>≈&nbsp;23&nbsp;000&nbsp;₽</td>
               </tr>
               <tr>
                 <td><span class="badgeSoft">Project Line 100</span></td>
                 <td>100 шт</td>
                 <td>1 дизайн + 1 молд, серийный выпуск для большого объекта</td>
-                <td><strong>от 2 200 000 ₽</strong></td>
-                <td>≈ 22 000 ₽</td>
+                <td><strong>от&nbsp;2&nbsp;200&nbsp;000&nbsp;₽</strong></td>
+                <td>≈&nbsp;22&nbsp;000&nbsp;₽</td>
               </tr>
             </tbody>
           </table>
@@ -1290,38 +1373,38 @@
 
           <div class="contactCard reveal">
             <h3 style="margin:0 0 8px;font-family:Unbounded;">Контакты</h3>
-            <p class="small" style="margin:0 0 12px;">Замените на свои — это одна строка в HTML (подсказка в комментариях).</p>
+            <p class="small" style="margin:0 0 12px;">Ниже — мои контакты, каждую строку можно скопировать кнопкой справа.</p>
 
             <div class="contactRow">
               <div>
                 <div class="label2">Имя</div>
-                <div class="value" data-copy="Имя Фамилия">Имя Фамилия</div>
+                <div class="value" data-copy="Жданов Роман">Жданов Роман</div>
               </div>
-              <button class="btn" type="button" data-copy-btn="Имя Фамилия" style="padding:10px 12px;">Скопировать</button>
+              <button class="btn" type="button" data-copy-btn="Жданов Роман" style="padding:10px 12px;">Скопировать</button>
             </div>
 
             <div class="contactRow">
               <div>
                 <div class="label2">WhatsApp / Телефон</div>
-                <div class="value" data-copy="+7 (999) 000-00-00">+7 (999) 000-00-00</div>
+                <div class="value" data-copy="89148879245">89148879245</div>
               </div>
-              <button class="btn" type="button" data-copy-btn="+7 (999) 000-00-00" style="padding:10px 12px;">Скопировать</button>
+              <button class="btn" type="button" data-copy-btn="89148879245" style="padding:10px 12px;">Скопировать</button>
             </div>
 
             <div class="contactRow">
               <div>
                 <div class="label2">Telegram</div>
-                <div class="value" data-copy="@username">@username</div>
+                <div class="value" data-copy="@Pemuul">@Pemuul</div>
               </div>
-              <button class="btn" type="button" data-copy-btn="@username" style="padding:10px 12px;">Скопировать</button>
+              <button class="btn" type="button" data-copy-btn="@Pemuul" style="padding:10px 12px;">Скопировать</button>
             </div>
 
             <div class="contactRow">
               <div>
                 <div class="label2">E‑mail</div>
-                <div class="value" data-copy="hello@example.com">hello@example.com</div>
+                <div class="value" data-copy="pemuul@inbox.ru">pemuul@inbox.ru</div>
               </div>
-              <button class="btn" type="button" data-copy-btn="hello@example.com" style="padding:10px 12px;">Скопировать</button>
+              <button class="btn" type="button" data-copy-btn="pemuul@inbox.ru" style="padding:10px 12px;">Скопировать</button>
             </div>
 
             <div style="margin-top: 14px; display:flex; gap: 12px; align-items:center; flex-wrap: wrap;">
@@ -1331,10 +1414,6 @@
               </button>
             </div>
 
-            <div style="margin-top: 14px; display:flex; gap: 12px; flex-wrap:wrap; align-items:center;">
-              <img src="assets/mosaic.png" alt="" style="width: 170px; height:auto; filter: drop-shadow(0 18px 28px rgba(0,0,0,.18));" loading="lazy">
-              <img src="assets/red.png" alt="" style="width: 170px; height:auto; border-radius: 22px; box-shadow: 0 18px 45px rgba(0,0,0,.16); border: 1px solid rgba(255,255,255,.55);" loading="lazy">
-            </div>
           </div>
         </div>
       </div>
@@ -1351,6 +1430,23 @@
   </main>
 
   <script>
+    // ---- Mobile nav toggle ----
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.getElementById('navmenu');
+    const navLinkItems = navLinks?.querySelectorAll('a');
+
+    if(navToggle && navLinks){
+      navToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      navLinkItems?.forEach((link) => link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }));
+    }
+
     // ---- Print / "show as presentation" ----
     document.getElementById('printBtn')?.addEventListener('click', () => window.print());
 
@@ -1394,13 +1490,13 @@
     }
 
     // ---- Active nav highlight ----
-    const navLinks = Array.from(document.querySelectorAll('.navlinks .pill'));
+    const navPills = Array.from(document.querySelectorAll('.navlinks .pill'));
     const sections = ['benefits','idea','offer','audience','process','pricing','formats','terms','contact']
       .map(id => document.getElementById(id)).filter(Boolean);
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
-          navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
+          navPills.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id));
         }
       });
     }, { root: null, threshold: 0.35 });
