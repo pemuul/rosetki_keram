@@ -11,9 +11,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="icon" href="assets/icon2.png" type="image/png" />
-  <link rel="alternate icon" href="assets/icon2.png" />
-  <link rel="apple-touch-icon" href="assets/icon2.png" />
+  <link rel="icon" href="assets/icon2.webp" type="image/webp" />
+  <link rel="alternate icon" href="assets/icon2.webp" />
+  <link rel="apple-touch-icon" href="assets/icon2.webp" />
 
   <style>
     :root{
@@ -49,7 +49,7 @@
         radial-gradient(900px 500px at 18% 10%, rgba(255,106,61,.16), transparent 60%),
         radial-gradient(800px 520px at 86% 22%, rgba(27,122,163,.14), transparent 60%),
         radial-gradient(900px 700px at 70% 90%, rgba(240,179,62,.12), transparent 60%),
-        url("assets/bg_marble_soft.png");
+        url("assets/bg_marble_soft.webp");
       background-size: auto, auto, auto, cover;
       background-attachment: scroll, scroll, scroll, fixed;
       background-position: center;
@@ -606,6 +606,12 @@
     .flag{ display:inline-block; padding: 6px 10px; border-radius: 12px; background: rgba(255,106,61,.12); color: var(--accent); font-weight: 800; font-size: 12.5px; letter-spacing: .2px; }
 
     .twoCol{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px; }
+    .overlayBlock{ align-items:center; gap: 18px; }
+    .overlayCopy p{ margin: 0 0 12px; color: var(--muted); line-height: 1.65; }
+    .overlayGallery{ display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; align-items: stretch; }
+    .overlayCard{ background: rgba(255,255,255,.82); border: 1px solid var(--stroke); border-radius: var(--radius-lg); padding: 12px; box-shadow: var(--shadow2); text-align:center; }
+    .overlayCard img{ width: 100%; height: auto; display:block; border-radius: var(--radius-md); box-shadow: 0 14px 30px rgba(0,0,0,.12); background: rgba(11,31,42,.04); }
+    .overlayCard figcaption{ margin: 8px 0 2px; font-weight: 800; font-size: 13px; color: var(--muted); }
     .focusCard{
       padding: 16px;
       border-radius: var(--radius-lg);
@@ -775,7 +781,7 @@
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="На главную">
         <span class="mark" aria-hidden="true">
-          <img src="assets/icon2.png" alt="" loading="lazy" />
+          <img src="assets/icon2.webp" alt="" loading="lazy" />
         </span>
         <div>
           <div>Керамические накладки</div>
@@ -842,10 +848,10 @@
         </div>
 
         <div class="collage reveal" aria-label="Примеры работ">
-          <img class="imgA" src="assets/flower.png" alt="Керамическая накладка в форме цветка" />
-          <img class="imgB" src="assets/red.png" alt="Яркая керамическая накладка (красно-синяя)" />
-          <img class="imgC" src="assets/white.png" alt="Нейтральная белая керамическая накладка" />
-          <img class="imgD" src="assets/mosaic.png" alt="Мозаичная накладка" />
+          <img class="imgA" src="assets/flower.webp" alt="Керамическая накладка в форме цветка" />
+          <img class="imgB" src="assets/red.webp" alt="Яркая керамическая накладка (красно-синяя)" />
+          <img class="imgC" src="assets/white.webp" alt="Нейтральная белая керамическая накладка" />
+          <img class="imgD" src="assets/mosaic.webp" alt="Мозаичная накладка" />
         </div>
       </div>
     </section>
@@ -903,11 +909,11 @@
             </div>
 
             <div class="base" aria-hidden="true">
-              <img src="assets/defolt_rosetka.png" alt="Обычная пластиковая розетка" />
+              <img src="assets/defolt_rosetka.webp" alt="Обычная пластиковая розетка" />
             </div>
 
             <div class="top" id="compareTop">
-              <img src="assets/red.png" alt="Керамическая накладка как акцент" />
+              <img src="assets/red.webp" alt="Керамическая накладка как акцент" />
             </div>
 
             <div class="handle" id="compareHandle" aria-hidden="true">
@@ -1034,7 +1040,6 @@
     <!-- PROCESS -->
     <section id="process">
       <div class="wrap">
-        <p class="kicker reveal">Слайд 3 · производство</p>
         <h2 class="reveal">Процесс в 7 шагов</h2>
         <p class="sub reveal">
           Чётко, прозрачно и с примеркой: чтобы посадка была идеальной, а результат — предсказуемым на объекте.
@@ -1052,7 +1057,7 @@
                     <p>Обсуждаем объект, стилистику, палитру. Фиксируем бренды механизмов, количество точек и уникальных дизайнов.</p>
                   </div>
                   <div class="stepMedia">
-                    <img src="assets/step-1.png" alt="ТЗ и выбор систем" loading="lazy" />
+                    <img src="assets/step-1.webp" alt="ТЗ и выбор систем" loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -1069,7 +1074,7 @@
                     <p>Получаю ваши пластиковые рамки, строю инженерную 3D-базу с учётом усадки глины, продумываю художественную форму.</p>
                   </div>
                   <div class="stepMedia">
-                    <img src="assets/step-2.png" alt="Точная посадка и 3D" loading="lazy" />
+                    <img src="assets/step-2.webp" alt="Точная посадка и 3D" loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -1086,7 +1091,7 @@
                     <p>Печатаю пластиковый прототип, отправляю на объект. Проверка посадки по чек-листу, 1–2 итерации правок.</p>
                   </div>
                   <div class="stepMedia">
-                    <img src="assets/step-3.png" alt="Прототип и примерка" loading="lazy" />
+                    <img src="assets/step-3.webp" alt="Прототип и примерка" loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -1103,7 +1108,7 @@
                     <p>Печатаю мастер-модель, снимаю гипсовую форму (одиночную или составную), сушу и готовлю к серии.</p>
                   </div>
                   <div class="stepMedia">
-                    <img src="assets/step-4.png" alt="Мастер-модель и молд" loading="lazy" />
+                    <img src="assets/step-4.webp" alt="Мастер-модель и молд" loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -1120,7 +1125,7 @@
                     <p>Лью серию из шликера, дорабатываю сырец, сушу медленно, чтобы избежать коробления. Делаю утильный обжиг.</p>
                   </div>
                   <div class="stepMedia">
-                    <img src="assets/step-5.png" alt="Литьё, сушка, утиль" loading="lazy" />
+                    <img src="assets/step-5.webp" alt="Литьё, сушка, утиль" loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -1137,7 +1142,7 @@
                     <p>Тестирую ангобы и глазури, наношу декор или роспись, провожу глазурный обжиг и сортирую партию.</p>
                   </div>
                   <div class="stepMedia">
-                    <img src="assets/step-6.png" alt="Декор и глазурь" loading="lazy" />
+                    <img src="assets/step-6.webp" alt="Декор и глазурь" loading="lazy" />
                   </div>
                 </div>
               </div>
@@ -1154,13 +1159,47 @@
                     <p>Тестовая сборка на стенде, маркировка, индивидуальная упаковка каждой накладки, доставка по РФ с опцией страховки.</p>
                   </div>
                   <div class="stepMedia">
-                    <img src="assets/step-7.png" alt="Контроль и отгрузка" loading="lazy" />
+                    <img src="assets/step-7.webp" alt="Контроль и отгрузка" loading="lazy" />
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- SCOPE -->
+    <section id="scope">
+      <div class="wrap">
+        <p class="kicker reveal">Фокус продукта</p>
+        <h2 class="reveal">Делаю керамическую накладку вместо пластиковой рамки</h2>
+        <div class="twoCol overlayBlock">
+          <div class="overlayCopy reveal">
+            <p>Работаю с сертифицированными механизмами выбранного вами бренда — я не заменяю саму розетку, а создаю декоративную керамическую накладку, которая точно садится на штатное основание.</p>
+            <p>Снимаю размеры, учитываю усадку глины, делаю посадку под конкретную серию, чтобы сохранить безопасность и функциональность механизма, но заменить пластиковый вид на ручную работу.</p>
+            <div class="pillRow">
+              <span class="tinyPill">Керамика вместо пластика</span>
+              <span class="tinyPill">Точная посадка под бренд</span>
+              <span class="tinyPill">Сохранение штатной электрики</span>
+            </div>
+          </div>
+
+          <div class="overlayGallery reveal" aria-label="Сравнение стандартной рамки и керамической накладки">
+            <figure class="overlayCard">
+              <img src="assets/front_def.webp" alt="Стандартная рамка спереди" loading="lazy" />
+              <figcaption>Штатный пластик фронтально</figcaption>
+            </figure>
+            <figure class="overlayCard">
+              <img src="assets/midle_def.webp" alt="Стандартная рамка в сборке" loading="lazy" />
+              <figcaption>Боковая геометрия и посадка</figcaption>
+            </figure>
+            <figure class="overlayCard">
+              <img src="assets/back_def.webp" alt="Стандартная рамка сзади" loading="lazy" />
+              <figcaption>Основание для новой накладки</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </section>
@@ -1254,9 +1293,9 @@
         </p>
 
         <div class="reveal" style="margin-top: 18px; display:flex; gap: 14px; flex-wrap: wrap; align-items:center;">
-          <img src="assets/mosaic.png" alt="Мозаичная накладка" style="width: 220px; height:auto; filter: drop-shadow(0 18px 28px rgba(0,0,0,.16));" loading="lazy">
-          <img src="assets/flower.png" alt="Цветочная накладка" style="width: 220px; height:auto; border-radius: 22px; box-shadow: 0 18px 45px rgba(0,0,0,.16); border: 1px solid rgba(255,255,255,.55);" loading="lazy">
-          <img src="assets/white.png" alt="Белая накладка" style="width: 220px; height:auto; border-radius: 22px; box-shadow: 0 18px 45px rgba(0,0,0,.16); border: 1px solid rgba(255,255,255,.55);" loading="lazy">
+          <img src="assets/mosaic.webp" alt="Мозаичная накладка" style="width: 220px; height:auto; filter: drop-shadow(0 18px 28px rgba(0,0,0,.16));" loading="lazy">
+          <img src="assets/flower.webp" alt="Цветочная накладка" style="width: 220px; height:auto; border-radius: 22px; box-shadow: 0 18px 45px rgba(0,0,0,.16); border: 1px solid rgba(255,255,255,.55);" loading="lazy">
+          <img src="assets/white.webp" alt="Белая накладка" style="width: 220px; height:auto; border-radius: 22px; box-shadow: 0 18px 45px rgba(0,0,0,.16); border: 1px solid rgba(255,255,255,.55);" loading="lazy">
         </div>
       </div>
     </section>
