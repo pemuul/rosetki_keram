@@ -608,7 +608,13 @@
     .twoCol{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px; }
     .overlayBlock{ align-items:center; gap: 18px; }
     .overlayCopy p{ margin: 0 0 12px; color: var(--muted); line-height: 1.65; }
-    .overlayGallery{ display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; align-items: stretch; }
+    .overlayGallery{ display:grid; grid-template-columns: repeat(3, minmax(200px, 1fr)); gap: 12px; align-items: stretch; }
+    @media (max-width: 980px){
+      .overlayGallery{ grid-template-columns: repeat(2, minmax(200px, 1fr)); }
+    }
+    @media (max-width: 640px){
+      .overlayGallery{ grid-template-columns: 1fr; }
+    }
     .overlayCard{ background: rgba(255,255,255,.82); border: 1px solid var(--stroke); border-radius: var(--radius-lg); padding: 12px; box-shadow: var(--shadow2); text-align:center; }
     .overlayCard img{ width: 100%; height: auto; display:block; border-radius: var(--radius-md); box-shadow: 0 14px 30px rgba(0,0,0,.12); background: rgba(11,31,42,.04); }
     .overlayCard figcaption{ margin: 8px 0 2px; font-weight: 800; font-size: 13px; color: var(--muted); }
@@ -859,7 +865,7 @@
     <!-- BENEFITS -->
     <section id="benefits">
       <div class="wrap">
-        <p class="kicker reveal">Слайд 2 · эффект для интерьера</p>
+        <p class="kicker reveal">Эффект для интерьера</p>
         <h2 class="reveal">Зачем менять обычные розетки</h2>
         <p class="sub reveal">
           Пластиковые рамки часто выбиваются из дорогих материалов и «обнуляют» картинку.
@@ -1177,8 +1183,8 @@
         <h2 class="reveal">Делаю керамическую накладку вместо пластиковой рамки</h2>
         <div class="twoCol overlayBlock">
           <div class="overlayCopy reveal">
-            <p>Работаю с сертифицированными механизмами выбранного вами бренда — я не заменяю саму розетку, а создаю декоративную керамическую накладку, которая точно садится на штатное основание.</p>
-            <p>Снимаю размеры, учитываю усадку глины, делаю посадку под конкретную серию, чтобы сохранить безопасность и функциональность механизма, но заменить пластиковый вид на ручную работу.</p>
+            <p>Работаем со штатной электрикой вашего бренда — не трогаем механизм и контакты, а создаём декоративную керамическую накладку, которая точно садится на родную геометрию.</p>
+            <p>Снимаю размеры, учитываю усадку глины, подгоняю посадку под конкретную серию, чтобы сохранить безопасность и функциональность, но заменить пластиковый вид на ручную работу.</p>
             <div class="pillRow">
               <span class="tinyPill">Керамика вместо пластика</span>
               <span class="tinyPill">Точная посадка под бренд</span>
@@ -1188,16 +1194,16 @@
 
           <div class="overlayGallery reveal" aria-label="Сравнение стандартной рамки и керамической накладки">
             <figure class="overlayCard">
-              <img src="assets/front_def.webp" alt="Стандартная рамка спереди" loading="lazy" />
-              <figcaption>Штатный пластик фронтально</figcaption>
+              <img src="assets/front_def.webp" alt="Керамическая накладка фронтально" loading="lazy" />
+              <figcaption>Декоративная накладка</figcaption>
             </figure>
             <figure class="overlayCard">
-              <img src="assets/midle_def.webp" alt="Стандартная рамка в сборке" loading="lazy" />
-              <figcaption>Боковая геометрия и посадка</figcaption>
+              <img src="assets/midle_def.webp" alt="Корпус штатной розетки" loading="lazy" />
+              <figcaption>Корпус</figcaption>
             </figure>
             <figure class="overlayCard">
-              <img src="assets/back_def.webp" alt="Стандартная рамка сзади" loading="lazy" />
-              <figcaption>Основание для новой накладки</figcaption>
+              <img src="assets/back_def.webp" alt="Внутренняя часть для новой накладки" loading="lazy" />
+              <figcaption>Внутренняя часть</figcaption>
             </figure>
           </div>
         </div>
@@ -1207,7 +1213,7 @@
     <!-- PRICING -->
     <section id="pricing">
       <div class="wrap">
-        <p class="kicker reveal">Слайд 4 · ориентиры</p>
+        <p class="kicker reveal">Ориентиры стоимости</p>
         <h2 class="reveal">Прозрачная модель ценообразования</h2>
         <p class="sub reveal">
           Итоговая цена складывается из двух частей: фикс за разработку и подготовку производства + переменная стоимость одной накладки.
@@ -1368,7 +1374,7 @@
     <!-- CONTACT -->
     <section id="contact">
       <div class="wrap">
-        <p class="kicker reveal">Слайд 5 · финал</p>
+        <p class="kicker reveal">Контакты</p>
         <h2 class="reveal">Готовы обсудить проект</h2>
 
         <div class="contactGrid">
